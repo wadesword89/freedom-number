@@ -2,12 +2,12 @@
 
 import { Button } from '@/components/ui/button';
 import { HelpCircle } from 'lucide-react';
+
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
 interface ReturnRateSelectorProps {
   returnRate: number;
@@ -24,34 +24,49 @@ export default function ReturnRateSelector({
         <span className="text-sm text-slate-600 dark:text-slate-400">
           Assumed annual return on investments
         </span>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-6 w-6">
-                <HelpCircle className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p className="max-w-xs">
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="ghost" size="icon" className="h-6 w-6">
+              <HelpCircle className="h-4 w-4" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className='w-80'>
+            <div className="space-y-2">
+              <h4 className="font-medium">Investment Return Rate</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
                 This is the average annual return you expect from your
                 investments over the long term. The S&P 500 has historically
                 returned about 10% annually before inflation.
               </p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Rates here are inflation-adjusted and assume steady, long-term
+                market growth. No market crashes or downturns are accounted for.
+              </p>
+              {/* <p className="text-sm text-slate-600 dark:text-slate-400">
+                - 6% is a conservative estimate - 7% is a moderate estimate -
+                Higher rates are possible but riskier.
+              </p> */}
+              <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
+                <li>6% is a conservative estimate</li>
+                <li>7% is a moderate estimate</li>
+                <li>Higher rates are possible but riskier.</li>
+              </ul>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <Button
           variant={returnRate === 0.06 ? 'default' : 'outline'}
-          className="h-16 text-lg"
+          className="h-12 text-lg"
           onClick={() => setReturnRate(0.06)}
         >
           6%
         </Button>
         <Button
           variant={returnRate === 0.07 ? 'default' : 'outline'}
-          className="h-16 text-lg"
+          className="h-12 text-lg"
           onClick={() => setReturnRate(0.07)}
         >
           7%

@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import ReturnRateSelector from './return-rate-selector';
+import WithdrawalRateSelector from './withdrawal-rate-selector';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useState(30);
@@ -21,7 +22,7 @@ export default function FreedomCalculator() {
     <div className="grid gap-8 md:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle>Current Age</CardTitle>
+          <CardTitle>Your Age</CardTitle>
         </CardHeader>
         <CardContent>
           <AgeSlider currentAge={currentAge} setCurrentAge={setCurrentAge} />
@@ -42,10 +43,10 @@ export default function FreedomCalculator() {
           </div>
           <div>
             <h3 className="mb-2 font-medium">Withdrawal Rate</h3>
-            {/* <WithdrawalRateSelector
+            <WithdrawalRateSelector
               withdrawalRate={withdrawalRate}
               setWithdrawalRate={setWithdrawalRate}
-            /> */}
+            />
           </div>
           <div>
             <h3 className="mb-2 font-medium">Risk Tolerance</h3>
