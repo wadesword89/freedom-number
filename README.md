@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Freedom Number
 
-## Getting Started
+## Overview
+ **Freedom Number** is a financial tool that helps users determine when they can achieve **financial independence**. By inputting investment details and assumptions, the app calculates the required investment amount (**Freedom Number**) and the age at which the user can safely retire (**Freedom Age**).
 
-First, run the development server:
+## Features
+- **Real-time calculations** based on user inputs.
+- **Dynamic investment input fields** for tracking multiple accounts.
+- **Interactive visualization** of investment growth over time.
+- **Customizable assumptions** for investment return, withdrawal rate, and risk tolerance.
+- **Responsive design** for desktop and mobile.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
+- **Next.js 15** (React framework)
+- **shadcn/ui** (UI components)
+- **Recharts** (Data visualization)
+- **React hooks** (State management and real-time updates)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## User Inputs
+- **Current Total Investment Holdings**: Sum of all investment accounts.
+- **Assumed Investment Return Rate**: Choose between **6% or 7%**.
+- **Current Age**: Must be between **1 and 100**.
+- **Future Withdrawal Rate**: Choose between **3.5% or 4%**.
+- **Additional Monthly Investments**: Specify recurring investments per account.
+- **Monthly Expenses**: Specify monthly expenses per category.
+- **Risk Tolerance**: Choose between **Normal (25x expenses) or Conservative (30x expenses)**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## App Outputs
+- **Freedom Number**: Total amount needed for financial independence.
+- **Freedom Age**: Age when the user reaches their Freedom Number.
+- **Investment Growth Chart**: A dynamic visualization showing investment growth over time.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Assumptions
+- **No Social Security or pension income included**.
+- **Consistent monthly contributions until Freedom Age**.
+- **Steady annual investment returns (6% or 7%) with no market crashes**.
+- **No taxes on withdrawals (assumes tax-advantaged accounts)**.
+- **Fixed withdrawal rate (3.5% or 4%) throughout retirement**.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
