@@ -11,11 +11,12 @@ import {
 } from '@/components/ui/card';
 import ReturnRateSelector from './return-rate-selector';
 import WithdrawalRateSelector from './withdrawal-rate-selector';
+import RiskToleranceToggle from './risk-tolerance-toggle';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useState(30);
-  const [returnRate, setReturnRate] = useState(0.07); // 7% default
-  const [withdrawalRate, setWithdrawalRate] = useState(0.04); // 4% default
+  const [returnRate, setReturnRate] = useState(0.07);
+  const [withdrawalRate, setWithdrawalRate] = useState(0.04);
   const [isConservative, setIsConservative] = useState(false);
 
   return (
@@ -50,10 +51,10 @@ export default function FreedomCalculator() {
           </div>
           <div>
             <h3 className="mb-2 font-medium">Risk Tolerance</h3>
-            {/* <RiskToleranceToggle
+            <RiskToleranceToggle
               isConservative={isConservative}
               setIsConservative={setIsConservative}
-            /> */}
+            />
           </div>
         </CardContent>
       </Card>

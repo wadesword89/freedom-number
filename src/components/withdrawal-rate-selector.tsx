@@ -64,6 +64,23 @@ export default function WithdrawalRateSelector({
           </PopoverContent>
         </Popover>
       </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Button
+          variant={withdrawalRate === 0.035 ? 'default' : 'outline'}
+          className="h-12 text-lg"
+          onClick={() => setWithdrawalRate(0.035)}
+        >
+          3.5%
+        </Button>
+        <Button
+          variant={withdrawalRate === 0.04 ? 'default' : 'outline'}
+          className="h-12 text-lg"
+          onClick={() => setWithdrawalRate(0.04)}
+        >
+          4%
+        </Button>
+      </div>
     </div>
   );
 }

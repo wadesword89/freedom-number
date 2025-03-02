@@ -30,7 +30,7 @@ export default function ReturnRateSelector({
               <HelpCircle className="h-4 w-4" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='w-80'>
+          <PopoverContent className="w-80">
             <div className="space-y-2">
               <h4 className="font-medium">Investment Return Rate</h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -43,10 +43,7 @@ export default function ReturnRateSelector({
                 Rates here are inflation-adjusted and assume steady, long-term
                 market growth. No market crashes or downturns are accounted for.
               </p>
-              {/* <p className="text-sm text-slate-600 dark:text-slate-400">
-                - 6% is a conservative estimate - 7% is a moderate estimate -
-                Higher rates are possible but riskier.
-              </p> */}
+
               <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
                 <li>6% is a conservative estimate</li>
                 <li>7% is a moderate estimate</li>
