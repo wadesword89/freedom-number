@@ -12,11 +12,15 @@ import { Trash2, PlusCircle } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
-export default function MonthlyExpensesTable({ expenses, setExpenses, total }) {
-
-  function handleUpdateCategory(value: string, id: string) {
-    
-    setExpenses()
+export default function MonthlyExpensesTable({
+  monthlyExpenses,
+  setMonthlyExpenses,
+  totalMonthlyExpenses,
+}) {
+  function handleUpdateCategory(category: string, id: string) {
+    setMonthlyExpenses(
+      monthlyExpenses.map((expense) => (expense.id === id ? {...expense, category} : expense))
+    );
   }
 
   function handleUpdateAmount() {}
@@ -37,12 +41,14 @@ export default function MonthlyExpensesTable({ expenses, setExpenses, total }) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {expenses.map((expense) => (
+          {monthlyExpenses.map((expense) => (
             <TableRow key={expense.id}>
               <TableCell className="font-medium">
                 <Input
                   value={expense.category}
-                  onChange={(e) => handleUpdateCategory(e.target.value, expense.id)}
+                  onChange={(e) =>
+                    handleUpdateCategory(e.target.value, expense.id)
+                  }
                   className="h-9 text-sm"
                 />
               </TableCell>
@@ -82,9 +88,7 @@ export default function MonthlyExpensesTable({ expenses, setExpenses, total }) {
       {}
 
       {/* Total Monthy Expenses */}
-      <div>
-
-      </div>
+      <div></div>
     </section>
   );
 }

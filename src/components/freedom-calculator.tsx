@@ -27,7 +27,7 @@ export default function FreedomCalculator() {
     { id: uuidv4(), category: 'Transportation', amount: 300 },
     { id: uuidv4(), category: 'Utilities', amount: 100 },
     { id: uuidv4(), category: 'Entertainment', amount: 200 },
-    { id: uuidv4(), category: 'Savings', amount: 500 },
+    { id: uuidv4(), category: 'Travel', amount: 300 },
     { id: uuidv4(), category: 'Miscellaneous', amount: 200 },
   ]);
 
@@ -87,9 +87,9 @@ export default function FreedomCalculator() {
           </CardHeader>
           <CardContent>
             <MonthlyExpensesTable
-              expenses={monthlyExpenses}
-              setExpenses={setMonthlyExpenses}
-              total={totalMonthlyExpenses}
+              monthlyExpenses={monthlyExpenses}
+              setMonthlyExpenses={setMonthlyExpenses}
+              totalMonthlyExpenses={totalMonthlyExpenses}
             />
           </CardContent>
         </Card>
