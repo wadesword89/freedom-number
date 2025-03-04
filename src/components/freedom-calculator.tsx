@@ -1,7 +1,7 @@
 'use client';
 
 import AgeSlider from './age-slider';
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -20,7 +20,6 @@ export default function FreedomCalculator() {
   const [returnRate, setReturnRate] = useState(0.07);
   const [withdrawalRate, setWithdrawalRate] = useState(0.04);
   const [isConservative, setIsConservative] = useState(false);
-
   const [monthlyExpenses, setMonthlyExpenses] = useState([
     { id: uuidv4(), category: 'Housing', amount: 2000 },
     { id: uuidv4(), category: 'Food', amount: 400 },
@@ -30,9 +29,16 @@ export default function FreedomCalculator() {
     { id: uuidv4(), category: 'Travel', amount: 300 },
     { id: uuidv4(), category: 'Miscellaneous', amount: 200 },
   ]);
-
-  // Add the totalMonthlyExpenses state after the other calculated values
   const [totalMonthlyExpenses, setTotalMonthlyExpenses] = useState(0);
+
+  // When the monthlyExpenses change, recalculate the total
+  useEffect(() => {
+    const total = monthlyExpenses.reduce(
+      (acc, expense) => acc + expense.amount,
+      0
+    );
+    setTotalMonthlyExpenses(total);
+  }, [monthlyExpenses]);
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
