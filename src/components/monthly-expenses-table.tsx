@@ -147,7 +147,7 @@ export default function MonthlyExpensesTable({
           onChange={(e) => {
             setNewAmount(e.target.value);
           }}
-          className="w-36 text-sm"
+          className="w-34 text-sm"
         />
         <Button size="icon" onClick={handleAddExpense}>
           <PlusCircle className="h-4 w-4" />

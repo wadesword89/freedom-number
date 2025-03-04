@@ -29,7 +29,19 @@ export default function FreedomCalculator() {
     { id: uuidv4(), category: 'Travel', amount: 300 },
     { id: uuidv4(), category: 'Miscellaneous', amount: 200 },
   ]);
+  const [currentInvestments, setCurrentInvestments] = useState([
+    { id: uuidv4(), name: '401(k)', amount: 10000 },
+    { id: uuidv4(), name: 'IRA', amount: 50000 },
+    { id: uuidv4(), name: 'Brokerage', amount: 10000 },
+  ]);
+  const [monthlyInvestments, setMonthlyInvestments] = useState([
+    { id: uuidv4(), name: '401(k)', amount: 500 },
+    { id: uuidv4(), name: 'IRA', amount: 500 },
+    { id: uuidv4(), name: 'Brokerage', amount: 500 },
+  ]);
   const [totalMonthlyExpenses, setTotalMonthlyExpenses] = useState(0);
+  const [totalCurrentInvestments, setTotalCurrentInvestments] = useState(0);
+  const [totalMonthlyInvestments, setTotalMonthlyInvestments] = useState(0);
 
   // When the monthlyExpenses change, recalculate the total
   useEffect(() => {
@@ -39,6 +51,24 @@ export default function FreedomCalculator() {
     );
     setTotalMonthlyExpenses(total);
   }, [monthlyExpenses]);
+  
+  // When the currentInvestments change, recalculate the total
+  useEffect(() => {
+    const total = currentInvestments.reduce(
+      (acc, expense) => acc + expense.amount,
+      0
+    );
+    setTotalCurrentInvestments(total);
+  }, [currentInvestments]);
+
+  // When the monthlyInvestments change, recalculate the total
+  useEffect(() => {
+    const total = monthlyInvestments.reduce(
+      (acc, expense) => acc + expense.amount,
+      0
+    );
+    setTotalMonthlyInvestments(total);
+  }, [monthlyInvestments]);
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
