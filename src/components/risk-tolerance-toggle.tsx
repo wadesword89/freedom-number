@@ -64,7 +64,7 @@ export default function RiskToleranceToggle({
           onClick={() => setIsConservative(false)}
         >
           <div className="flex flex-col items-center">
-            <span className="text-lg">Normal</span>
+            <span className="sm:text-lg">Normal</span>
             <span className="text-xs">25x Expenses</span>
           </div>
         </Button>
@@ -74,7 +74,7 @@ export default function RiskToleranceToggle({
           onClick={() => setIsConservative(true)}
         >
           <div className="flex flex-col items-center">
-            <span className="text-lg">Conservative</span>
+            <span className="sm:text-lg">Conservative</span>
             <span className="text-xs">30x Expenses</span>
           </div>
         </Button>

@@ -35,10 +35,13 @@ export default function ReturnRateSelector({
               <h4 className="font-medium">Investment Return Rate</h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">
                 This is the average annual return you expect from your
-                investments over the long term. The S&P 500 has historically
-                returned about 10% annually before inflation.
+                investments over the long term.
               </p>
 
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                The S&P 500 has historically returned about 10% annually before
+                inflation.
+              </p>
               <p className="text-sm text-slate-600 dark:text-slate-400">
                 Rates here are inflation-adjusted and assume steady, long-term
                 market growth. No market crashes or downturns are accounted for.
