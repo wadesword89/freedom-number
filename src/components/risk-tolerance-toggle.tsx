@@ -59,16 +59,6 @@ export default function RiskToleranceToggle({
 
       <div className="grid grid-cols-2 gap-4">
         <Button
-          variant={!isConservative ? 'default' : 'outline'}
-          className="h-14"
-          onClick={() => setIsConservative(false)}
-        >
-          <div className="flex flex-col items-center">
-            <span className="sm:text-lg">Normal</span>
-            <span className="text-xs">25x Expenses</span>
-          </div>
-        </Button>
-        <Button
           variant={isConservative ? 'default' : 'outline'}
           className="h-14"
           onClick={() => setIsConservative(true)}
@@ -76,6 +66,16 @@ export default function RiskToleranceToggle({
           <div className="flex flex-col items-center">
             <span className="sm:text-lg">Conservative</span>
             <span className="text-xs">30x Expenses</span>
+          </div>
+        </Button>
+        <Button
+          variant={!isConservative ? 'default' : 'outline'}
+          className="h-14"
+          onClick={() => setIsConservative(false)}
+        >
+          <div className="flex flex-col items-center">
+            <span className="sm:text-lg">Normal</span>
+            <span className="text-xs">25x Expenses</span>
           </div>
         </Button>
       </div>

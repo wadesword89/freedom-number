@@ -14,31 +14,31 @@ import { Input } from './ui/input';
 import { v4 as uuidv4 } from 'uuid';
 import { formatCurrency } from '@/lib/utils';
 
-export type Expense = {
+export type Investment = {
   id: string;
-  category: string;
+  account: string;
   amount: number;
 };
 
-interface MonthlyExpensesTableProps {
-  monthlyExpenses: Expense[];
-  setMonthlyExpenses: (expenses: Expense[]) => void;
-  totalMonthlyExpenses: number;
+interface MonthlyInvestmentsTableProps {
+  monthlyInvestments: Investment[];
+  setMonthlyInvestments: (investments: Investment[]) => void;
+  totalMonthlyInvestments: number;
 }
 
-export default function MonthlyExpensesTable({
-  monthlyExpenses,
-  setMonthlyExpenses,
-  totalMonthlyExpenses,
-}: MonthlyExpensesTableProps) {
+export default function MonthlyInvestmentsTable({
+  monthlyInvestments,
+  setMonthlyInvestments,
+  totalMonthlyInvestments,
+}: MonthlyInvestmentsTableProps) {
   const [error, setError] = useState('');
-  const [newCategory, setNewCategory] = useState('');
+  const [newAccount, setNewAccount] = useState('');
   const [newAmount, setNewAmount] = useState('');
 
-  function handleUpdateCategory(category: string, id: string) {
-    setMonthlyExpenses(
-      monthlyExpenses.map((expense) =>
-        expense.id === id ? { ...expense, category } : expense
+  function handleUpdateAccount(account: string, id: string) {
+    setMonthlyInvestments(
+      monthlyInvestments.map((investment) =>
+        investment.id === id ? { ...investment, account } : investment
       )
     );
   }
@@ -47,20 +47,20 @@ export default function MonthlyExpensesTable({
     const amountNum = Number.parseFloat(amount);
     if (isNaN(amountNum) || amountNum < 0) return;
 
-    setMonthlyExpenses(
-      monthlyExpenses.map((expense) =>
-        expense.id === id ? { ...expense, amount: amountNum } : expense
+    setMonthlyInvestments(
+      monthlyInvestments.map((investment) =>
+        investment.id === id ? { ...investment, amount: amountNum } : investment
       )
     );
   }
 
-  function handleRemoveExpense(id: string) {
-    setMonthlyExpenses(monthlyExpenses.filter((expense) => expense.id !== id));
+  function handleRemoveInvestment(id: string) {
+    setMonthlyInvestments(monthlyInvestments.filter((investment) => investment.id !== id));
   }
 
-  function handleAddExpense() {
-    if (!newCategory.trim()) {
-      setError('Please enter an expense category');
+  function handleAddInvestment() {
+    if (!newAccount.trim()) {
+      setError('Please enter an investment account');
       return;
     }
 
@@ -70,36 +70,36 @@ export default function MonthlyExpensesTable({
       return;
     }
 
-    setMonthlyExpenses([
-      ...monthlyExpenses,
-      { id: uuidv4(), category: newCategory.trim(), amount: amountNum },
+    setMonthlyInvestments([
+      ...monthlyInvestments,
+      { id: uuidv4(), account: newAccount.trim(), amount: amountNum },
     ]);
 
     // Reset Form
-    setNewCategory('');
+    setNewAccount('');
     setNewAmount('');
     setError('');
   }
 
   return (
     <section className="space-y-4">
-      {/* Expenses Table */}
+      {/* Investments Table */}
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="">Expense Category</TableHead>
+            <TableHead className="">Account Name</TableHead>
             <TableHead className="text-right">Monthly Amount ($)</TableHead>
             <TableHead className="w-[50px]"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {monthlyExpenses.map((expense) => (
-            <TableRow key={expense.id}>
+          {monthlyInvestments.map((investment) => (
+            <TableRow key={investment.id}>
               <TableCell className="font-medium">
                 <Input
-                  value={expense.category}
+                  value={investment.account}
                   onChange={(e) =>
-                    handleUpdateCategory(e.target.value, expense.id)
+                    handleUpdateAccount(e.target.value, investment.id)
                   }
                   className="h-9 text-sm"
                 />
@@ -108,9 +108,9 @@ export default function MonthlyExpensesTable({
                 <Input
                   type="number"
                   min="0"
-                  value={expense.amount}
+                  value={investment.amount}
                   onChange={(e) =>
-                    handleUpdateAmount(e.target.value, expense.id)
+                    handleUpdateAmount(e.target.value, investment.id)
                   }
                   className="h-9 text-sm text-right"
                 />
@@ -119,7 +119,7 @@ export default function MonthlyExpensesTable({
                 <Button
                   variant={'ghost'}
                   size="icon"
-                  onClick={() => handleRemoveExpense(expense.id)}
+                  onClick={() => handleRemoveInvestment(investment.id)}
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
@@ -129,13 +129,13 @@ export default function MonthlyExpensesTable({
         </TableBody>
       </Table>
 
-      {/* Input New Category  Section */}
+      {/* Input New Account  Section */}
       <div className="flex items-center gap-2">
         <Input
-          placeholder="Expense category"
-          value={newCategory}
+          placeholder="Investment account"
+          value={newAccount}
           onChange={(e) => {
-            setNewCategory(e.target.value);
+            setNewAccount(e.target.value);
           }}
           className="flex-1 text-sm"
         />
@@ -149,7 +149,7 @@ export default function MonthlyExpensesTable({
           }}
           className="w-34 text-sm"
         />
-        <Button size="icon" onClick={handleAddExpense}>
+        <Button size="icon" onClick={handleAddInvestment}>
           <PlusCircle className="h-4 w-4" />
         </Button>
       </div>
@@ -157,17 +157,17 @@ export default function MonthlyExpensesTable({
       {/* Show Errors */}
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      {/* Total Monthy Expenses */}
+      {/* Total Monthy Investments */}
       <div className="bg-slate-100 space-y-2 p-3 mt-4 rounded-md dark:bg-slate-800">
         <div className="flex justify-between">
-          <span className="font-medium">Total Monthly Expenses:</span>
+          <span className="font-medium">Total Monthly Investments:</span>
           <span className="font-bold">
-            {formatCurrency(totalMonthlyExpenses)}
+            {formatCurrency(totalMonthlyInvestments)}
           </span>
         </div>
         <div className="flex justify-between text-sm text-slate-600 dark:text-slate-400">
-          <span>Estimated Annual Expenses:</span>
-          <span>{formatCurrency(totalMonthlyExpenses * 12)}</span>
+          <span>Estimated Annual Investments:</span>
+          <span>{formatCurrency(totalMonthlyInvestments * 12)}</span>
         </div>
       </div>
     </section>

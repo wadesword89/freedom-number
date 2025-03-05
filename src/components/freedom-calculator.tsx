@@ -1,7 +1,7 @@
 'use client';
 
 import AgeSlider from './age-slider';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -13,7 +13,9 @@ import ReturnRateSelector from './return-rate-selector';
 import WithdrawalRateSelector from './withdrawal-rate-selector';
 import RiskToleranceToggle from './risk-tolerance-toggle';
 import MonthlyExpensesTable from './monthly-expenses-table';
+import MonthlyInvestmentsTable from './monthly-investments-table';
 import { v4 as uuidv4 } from 'uuid';
+import InvestmentHoldingsTable from './investment-holdings-table';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useState(30);
@@ -30,20 +32,20 @@ export default function FreedomCalculator() {
     { id: uuidv4(), category: 'Miscellaneous', amount: 200 },
   ]);
   const [currentInvestments, setCurrentInvestments] = useState([
-    { id: uuidv4(), name: '401(k)', amount: 10000 },
-    { id: uuidv4(), name: 'IRA', amount: 50000 },
-    { id: uuidv4(), name: 'Brokerage', amount: 10000 },
+    { id: uuidv4(), account: '401(k)', amount: 10000 },
+    { id: uuidv4(), account: 'IRA', amount: 50000 },
+    { id: uuidv4(), account: 'Brokerage', amount: 10000 },
   ]);
   const [monthlyInvestments, setMonthlyInvestments] = useState([
-    { id: uuidv4(), name: '401(k)', amount: 500 },
-    { id: uuidv4(), name: 'IRA', amount: 500 },
-    { id: uuidv4(), name: 'Brokerage', amount: 500 },
+    { id: uuidv4(), account: '401(k)', amount: 500 },
+    { id: uuidv4(), account: 'IRA', amount: 500 },
+    { id: uuidv4(), account: 'Brokerage', amount: 500 },
   ]);
   const [totalMonthlyExpenses, setTotalMonthlyExpenses] = useState(0);
   const [totalCurrentInvestments, setTotalCurrentInvestments] = useState(0);
   const [totalMonthlyInvestments, setTotalMonthlyInvestments] = useState(0);
 
-  // When the monthlyExpenses change, recalculate the total
+  // When the monthlyExpenses change, resum the totalmonthlyExpenses
   useEffect(() => {
     const total = monthlyExpenses.reduce(
       (acc, expense) => acc + expense.amount,
@@ -51,8 +53,8 @@ export default function FreedomCalculator() {
     );
     setTotalMonthlyExpenses(total);
   }, [monthlyExpenses]);
-  
-  // When the currentInvestments change, recalculate the total
+
+  // When the currentInvestments change, resum the totalcurrentInvestments
   useEffect(() => {
     const total = currentInvestments.reduce(
       (acc, expense) => acc + expense.amount,
@@ -61,7 +63,7 @@ export default function FreedomCalculator() {
     setTotalCurrentInvestments(total);
   }, [currentInvestments]);
 
-  // When the monthlyInvestments change, recalculate the total
+  // When the monthlyInvestments change, resum the totalmonthlyInvestments
   useEffect(() => {
     const total = monthlyInvestments.reduce(
       (acc, expense) => acc + expense.amount,
@@ -132,7 +134,7 @@ export default function FreedomCalculator() {
       </section>
 
       <section className="flex flex-col gap-6">
-        {/* Your Investment Holdings */}
+        {/* Your Investments */}
         <Card>
           <CardHeader>
             <CardTitle>Your Investments</CardTitle>
@@ -141,7 +143,11 @@ export default function FreedomCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <InvestmentHoldingsTable 
+              currentInvestments = {currentInvestments}
+              setCurrentInvestments = {setCurrentInvestments}
+              totalCurrentInvestments= {totalCurrentInvestments}
+            />
           </CardContent>
         </Card>
 
@@ -154,7 +160,11 @@ export default function FreedomCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <MonthlyInvestmentsTable
+              monthlyInvestments={monthlyInvestments}
+              setMonthlyInvestments={setMonthlyInvestments}
+              totalMonthlyInvestments={totalMonthlyInvestments}
+            />
           </CardContent>
         </Card>
       </section>
