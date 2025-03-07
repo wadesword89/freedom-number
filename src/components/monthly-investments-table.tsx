@@ -132,7 +132,7 @@ export default function MonthlyInvestmentsTable({
       {/* Input New Account  Section */}
       <div className="flex items-center gap-2">
         <Input
-          placeholder="Investment account"
+          placeholder="Account name"
           value={newAccount}
           onChange={(e) => {
             setNewAccount(e.target.value);

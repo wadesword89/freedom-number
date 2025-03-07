@@ -39,14 +39,19 @@ export default function InvestmentHoldingsTable({
   }
 
   function handleUpdateAmount(amount: string, id: string) {
+    const amountNum = Number.parseFloat(amount);
+    if (isNaN(amountNum) || amountNum < 0) {
+      setError('Please enter a valid amount');
+      return;
+    }
     setCurrentInvestments(
       currentInvestments.map((investment) =>
-        investment.id === id ? { ...investment, amount } : investment
+        investment.id === id ? { ...investment, amount: amountNum } : investment
       )
     );
   }
 
-  function handleRemoveInvestment(id) {
+  function handleRemoveInvestment(id: string) {
     setCurrentInvestments(
       currentInvestments.filter((investment) => investment.id !== id)
     );

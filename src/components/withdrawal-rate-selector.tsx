@@ -49,11 +49,11 @@ export default function WithdrawalRateSelector({
                   >
                     Trinity Study
                   </Link>
-                  .
+                  . It is assummed that the portfolio needs to last 30 years.
                 </li>
                 <li>
                   3.5% is a more conservative approach, which may be safer for
-                  longer retirements or uncertain market conditions.
+                  longer retirements (e.g more than 30 years) or or those in uncertain market conditions.
                 </li>
                 <li>
                   Your actual safe withdrawal rate may vary based on market

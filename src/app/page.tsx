@@ -10,7 +10,7 @@ export default function Home() {
               Freedom Number
             </h1>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Calculate when you can achieve{' '}
+              See when you could achieve{' '}
               <span className="">financial independence</span> 
             </p>
           </header>

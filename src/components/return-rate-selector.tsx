@@ -48,8 +48,8 @@ export default function ReturnRateSelector({
               </p>
 
               <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
-                <li>6% is a conservative estimate</li>
-                <li>7% is a moderate estimate</li>
+                <li><strong>6% </strong>is a conservative estimate</li>
+                <li><strong>7%</strong> is a moderate estimate</li>
                 <li>Higher rates are possible but riskier.</li>
               </ul>
             </div>
