@@ -10,7 +10,6 @@ import {
 import { formatCurrency } from '@/lib/utils';
 import { PartyPopper, Trophy } from 'lucide-react';
 import { NumberTicker } from './magicui/number-ticker';
-import { HyperText } from './magicui/hyper-text';
 
 export default function FreedomResults({ freedomNumber, freedomAge }) {
   const getAgeMessage = () => {
@@ -21,8 +20,8 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="overflow-hidden">
+    <div className="//space-y-6 flex justify-center gap-6 flex-col sm:flex-row">
+      <Card className="relative overflow-hidden">
         <CardHeader>
           <CardTitle>Your Freedom Number</CardTitle>
           <CardDescription>
@@ -31,7 +30,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
         </CardHeader>
         <CardContent className="">
           <div className="flex items-center justify-center py-8">
-            <Trophy className="mr-2 h-8 w-8 text-yellow-500" />
+            <Trophy className="mr-2 h-8 w-8 text-yellow-500 shrink-0" />
             <span className="text-5xl font-bold tracking-tight">
               {formatCurrency(freedomNumber)}
             </span>

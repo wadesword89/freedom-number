@@ -21,7 +21,7 @@ import FreedomResults from './freedom-results';
 import { Instagram, Twitter } from 'lucide-react';
 
 export default function FreedomCalculator() {
-  const [currentAge, setCurrentAge] = useState(35);
+  const [currentAge, setCurrentAge] = useState(30);
   const [returnRate, setReturnRate] = useState(0.06);
   // const [withdrawalRate, setWithdrawalRate] = useState(0.04);
   const [isConservative, setIsConservative] = useState(true);
@@ -38,13 +38,13 @@ export default function FreedomCalculator() {
     { id: uuidv4(), account: '401(k)', amount: 10000 },
     { id: uuidv4(), account: 'IRA', amount: 50000 },
     { id: uuidv4(), account: 'Brokerage', amount: 10000 },
-    { id: uuidv4(), account: 'Other', amount: 900000 },
+    { id: uuidv4(), account: 'Other', amount: 1000 },
   ]);
   const [monthlyInvestments, setMonthlyInvestments] = useState([
     { id: uuidv4(), account: '401(k)', amount: 500 },
     { id: uuidv4(), account: 'IRA', amount: 500 },
     { id: uuidv4(), account: 'Brokerage', amount: 500 },
-    { id: uuidv4(), account: 'Other', amount: 3400 },
+    { id: uuidv4(), account: 'Other', amount: 100 },
   ]);
   const [totalMonthlyExpenses, setTotalMonthlyExpenses] = useState(0);
   const [totalCurrentInvestments, setTotalCurrentInvestments] = useState(0);
@@ -232,7 +232,7 @@ export default function FreedomCalculator() {
       <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
         <div>
           {/* ❤️, 🤖, 🔥, 💦, ✨, */}
-          Made with <span>❤️</span> by{' '}
+          Made by{' '}
           <span className="hover:underline">
             <Link href={'https://www.gridscatter.com'} target="_blank">
               Grid Scatter{' '}
