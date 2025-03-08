@@ -16,6 +16,9 @@ import MonthlyExpensesTable from './monthly-expenses-table';
 import MonthlyInvestmentsTable from './monthly-investments-table';
 import { v4 as uuidv4 } from 'uuid';
 import InvestmentHoldingsTable from './investment-holdings-table';
+import FreedomResults from './freedom-results';
+import InvestmentGrowthChart from './investment-growth-chart';
+import { Instagram, Mail, MailIcon, Twitter } from 'lucide-react';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useState(35);
@@ -124,7 +127,7 @@ export default function FreedomCalculator() {
   ]);
 
   return (
-    <>
+    <main className="space-y-8">
       <div className="grid gap-8 md:grid-cols-2">
         <section className="flex flex-col gap-6">
           {/* Age Slider */}
@@ -218,32 +221,21 @@ export default function FreedomCalculator() {
               />
             </CardContent>
           </Card>
-          {/* Results */}
-          <div className="">
-            <Card>
-              <CardHeader>
-                <CardTitle>Results</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="mb-2 font-medium">Freedom Number</h3>
-                    <p className="text-3xl font-bold">${freedomNumber}</p>
-                  </div>
-                  <div>
-                    <h3 className="mb-2 font-medium">Freedom Age</h3>
-                    <p className="text-3xl font-bold">
-                      {freedomAge ? freedomAge : 'N/A'}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </section>
       </div>
+
+      {/* Results */}
+      <div className="flex flex-col">
+        <FreedomResults
+          freedomNumber={freedomNumber}
+          freedomAge={freedomAge}
+          isConservative={isConservative}
+        />
+      </div>
+
       <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
         <div>
+          {/* ❤️, 🤖, 🔥, 💦, ✨, */}
           Made with <span>❤️</span> by{' '}
           <span className="hover:underline">
             <Link href={'https://www.gridscatter.com'} target="_blank">
@@ -252,11 +244,54 @@ export default function FreedomCalculator() {
           </span>
         </div>
         <div className="flex gap-4">
-          <div>X</div>
-          <div>Mail</div>
-          <div>Insta</div>
+          <Link href={'https://www.x.com/gridscatter'} target="_blank">
+            <Twitter />
+          </Link>
+          <Link href={'https://www.instagram.com/gridscatter'} target="_blank">
+            <Instagram />
+          </Link>
         </div>
       </footer>
-    </>
+    </main>
   );
+}
+
+{
+  /* <div className="">
+  <Card>
+    <CardHeader>
+      <CardTitle>Results</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-6">
+        <div>
+          <h3 className="mb-2 font-medium">Freedom Number</h3>
+          <p className="text-3xl font-bold">${freedomNumber}</p>
+        </div>
+        <div>
+          <h3 className="mb-2 font-medium">Freedom Age</h3>
+          <p className="text-3xl font-bold">
+            {freedomAge ? freedomAge : 'N/A'}
+          </p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</div>; */
+}
+
+{
+  /* <Card>
+              <CardHeader>
+                <CardTitle>Investment Growth</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <InvestmentGrowthChart
+                  data={growthData}
+                  freedomNumber={freedomNumber}
+                  freedomAge={freedomAge}
+                  currentAge={currentAge}
+                />
+              </CardContent>
+            </Card> */
 }
