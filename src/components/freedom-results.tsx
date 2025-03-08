@@ -9,12 +9,10 @@ import {
 } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/utils';
 import { PartyPopper, Trophy } from 'lucide-react';
+import { NumberTicker } from './magicui/number-ticker';
+import { HyperText } from './magicui/hyper-text';
 
-export default function FreedomResults({
-  freedomNumber,
-  freedomAge,
-}) {
-
+export default function FreedomResults({ freedomNumber, freedomAge }) {
   const getAgeMessage = () => {
     if (freedomAge === 0) return 'Keep investing to reach your goal!';
     if (freedomAge < 50) return 'Early Retirement Achieved! 🚀';
@@ -55,7 +53,7 @@ export default function FreedomResults({
                 <div className="flex items-center justify-center">
                   <PartyPopper className="mr-2 h-8 w-8 text-pink-500" />
                   <span className="text-5xl font-bold tracking-tight">
-                    {freedomAge > 0 ? freedomAge : '—'}
+                    {freedomAge > 0 ? <NumberTicker value={freedomAge} /> : '—'}
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
