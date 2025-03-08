@@ -11,6 +11,7 @@ import {
 import { formatCurrency } from '@/lib/utils';
 import { PartyPopper, Trophy } from 'lucide-react';
 import { NumberTicker } from './magicui/number-ticker';
+import { ConfettiButton } from './magicui/confetti';
 
 export default function FreedomResults({ freedomNumber, freedomAge }) {
   const getAgeMessage = () => {
@@ -31,8 +32,8 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
         </CardHeader>
         <CardContent className="">
           <div className="flex items-center justify-center">
-            <Trophy className="mr-2 h-8 w-8 text-yellow-500 shrink-0" />
-            <span className="text-5xl font-bold tracking-tight">
+            {/* <Trophy className="mr-2 h-8 w-8 text-yellow-500 shrink-0" /> */}
+            <span className="text-5xl font-bold tracking-tight text-green-500">
               {formatCurrency(freedomNumber)}
             </span>
           </div>
@@ -51,9 +52,16 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
             <div className="flex items-center justify-center">
               <div className="text-center">
                 <div className="flex items-center justify-center">
-                  <PartyPopper className="mr-2 h-8 w-8 text-pink-500" />
-                  <span className="text-5xl font-bold tracking-tight">
-                    {freedomAge > 0 ? <NumberTicker value={freedomAge} /> : '—'}
+                  <PartyPopper className="h-8 w-8 text-pink-500 mr-2" />
+                  <span className="text-5xl font-bold tracking-tight ">
+                    {freedomAge > 0 ? (
+                      <NumberTicker
+                        className="text-pink-500"
+                        value={freedomAge}
+                      />
+                    ) : (
+                      '—'
+                    )}
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
