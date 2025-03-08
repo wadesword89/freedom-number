@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -14,9 +13,8 @@ import { PartyPopper, Trophy } from 'lucide-react';
 export default function FreedomResults({
   freedomNumber,
   freedomAge,
-  isConservative,
 }) {
-  
+
   const getAgeMessage = () => {
     if (freedomAge === 0) return 'Keep investing to reach your goal!';
     if (freedomAge < 50) return 'Early Retirement Achieved! 🚀';

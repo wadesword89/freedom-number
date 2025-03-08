@@ -10,20 +10,20 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import ReturnRateSelector from './return-rate-selector';
-import WithdrawalRateSelector from './withdrawal-rate-selector';
+// import WithdrawalRateSelector from './withdrawal-rate-selector';
 import RiskToleranceToggle from './risk-tolerance-toggle';
 import MonthlyExpensesTable from './monthly-expenses-table';
 import MonthlyInvestmentsTable from './monthly-investments-table';
 import { v4 as uuidv4 } from 'uuid';
 import InvestmentHoldingsTable from './investment-holdings-table';
 import FreedomResults from './freedom-results';
-import InvestmentGrowthChart from './investment-growth-chart';
-import { Instagram, Mail, MailIcon, Twitter } from 'lucide-react';
+// import InvestmentGrowthChart from './investment-growth-chart';
+import { Instagram, Twitter } from 'lucide-react';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useState(35);
   const [returnRate, setReturnRate] = useState(0.06);
-  const [withdrawalRate, setWithdrawalRate] = useState(0.04);
+  // const [withdrawalRate, setWithdrawalRate] = useState(0.04);
   const [isConservative, setIsConservative] = useState(true);
   const [monthlyExpenses, setMonthlyExpenses] = useState([
     { id: uuidv4(), category: 'Housing', amount: 2000 },
@@ -226,11 +226,7 @@ export default function FreedomCalculator() {
 
       {/* Results */}
       <div className="flex flex-col">
-        <FreedomResults
-          freedomNumber={freedomNumber}
-          freedomAge={freedomAge}
-          isConservative={isConservative}
-        />
+        <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
 
       <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
