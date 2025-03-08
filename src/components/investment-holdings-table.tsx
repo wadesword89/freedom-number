@@ -86,9 +86,9 @@ export default function InvestmentHoldingsTable({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Account Name</TableHead>
+            <TableHead className="">Account Name</TableHead>
             <TableHead className="text-right">Amount ($)</TableHead>
-            <TableHead className="text-right"></TableHead>
+            <TableHead className="w-[50px]"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

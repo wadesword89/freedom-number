@@ -127,11 +127,18 @@ export default function FreedomCalculator() {
   ]);
 
   return (
-    <main className="space-y-8">
+    <main className="space-y-8 relative">
+
+      {/* Results */}
+      <div className="flex flex-col p-4 //border rounded-2xl shadow-inner">
+        <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
+      </div>
+      
+      {/* Inputs */}
       <div className="grid gap-8 md:grid-cols-2">
         <section className="flex flex-col gap-6">
           {/* Age Slider */}
-          <Card>
+          <Card className=''>
             <CardHeader>
               <CardTitle>Your Age</CardTitle>
             </CardHeader>
@@ -224,10 +231,7 @@ export default function FreedomCalculator() {
         </section>
       </div>
 
-      {/* Results */}
-      <div className="flex flex-col">
-        <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
-      </div>
+      
 
       <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
         <div>

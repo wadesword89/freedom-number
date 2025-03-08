@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardFooter,
 } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/utils';
 import { PartyPopper, Trophy } from 'lucide-react';
@@ -29,7 +30,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
           </CardDescription>
         </CardHeader>
         <CardContent className="">
-          <div className="flex items-center justify-center py-8">
+          <div className="flex items-center justify-center">
             <Trophy className="mr-2 h-8 w-8 text-yellow-500 shrink-0" />
             <span className="text-5xl font-bold tracking-tight">
               {formatCurrency(freedomNumber)}
@@ -47,7 +48,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
             </CardDescription>
           </CardHeader>
           <CardContent className="">
-            <div className="flex items-center justify-center py-8">
+            <div className="flex items-center justify-center">
               <div className="text-center">
                 <div className="flex items-center justify-center">
                   <PartyPopper className="mr-2 h-8 w-8 text-pink-500" />
