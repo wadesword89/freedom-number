@@ -138,9 +138,9 @@ const ConfettiButtonComponent = ({
   };
 
   return (
-    <Button variant="ghost" onClick={handleClick} {...props}>
+    <button onClick={handleClick} className="cursor-pointer animate-pulse"{...props}>
       {children}
-    </Button>
+    </button>
   );
 };
 
