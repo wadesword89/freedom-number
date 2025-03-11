@@ -20,7 +20,7 @@ export default function RiskToleranceToggle({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-slate-600">
+        <span className="text-sm text-muted-foreground">
           Choose Your Risk Tolerance Level
         </span>
 
@@ -33,28 +33,34 @@ export default function RiskToleranceToggle({
           <PopoverContent>
             <div className="space-y-2">
               <h4 className="font-medium">Risk Tolerance</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-secondary-foreground">
                 Your risk tolerance affects how much you need to save for
                 retirement:
               </p>
-              <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
+              <ul className="list-disc pl-4 text-sm text-secondary-foreground">
                 <li>
                   <strong>Normal (25x):</strong> This follows the traditional{' '}
                   <Link
-                    href={'https://www.northwesternmutual.com/life-and-money/how-does-the-4-percent-rule-work-for-retirement/'}
+                    href={
+                      'https://www.northwesternmutual.com/life-and-money/how-does-the-4-percent-rule-work-for-retirement/'
+                    }
                     className="underline"
                     target="_blank"
                   >
                     4% rule
-                  </Link>
-                  {' '}of safe withdrawal in retirement, assuming you need 25 times your annual expenses saved. Use this if you expect your retirement to last at most 30 years.
+                  </Link>{' '}
+                  of safe withdrawal in retirement, assuming you need 25 times
+                  your annual expenses saved. Use this if you expect your
+                  retirement to last at most 30 years.
                 </li>
                 <li>
                   <strong>Conservative (30x):</strong> This approach provides an
-                  extra cushion, which may be suitable for early retirees (e.g. needing more than 30 years of retirement income) or those in uncertain market conditions.
+                  extra cushion, which may be suitable for early retirees (e.g.
+                  needing more than 30 years of retirement income) or those in
+                  uncertain market conditions.
                 </li>
               </ul>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-muted-foreground ">
                 Choose based on your comfort level with market fluctuations and
                 your retirement timeline.
               </p>

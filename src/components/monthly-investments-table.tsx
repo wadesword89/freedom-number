@@ -158,14 +158,14 @@ export default function MonthlyInvestmentsTable({
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {/* Total Monthy Investments */}
-      <div className="bg-slate-100 space-y-2 p-3 mt-4 rounded-md dark:bg-slate-800">
+      <div className="bg-accent space-y-2 p-3 mt-4 rounded-md ">
         <div className="flex justify-between">
           <span className="font-medium">Total Monthly Investments:</span>
           <span className="font-bold">
             {formatCurrency(totalMonthlyInvestments)}
           </span>
         </div>
-        <div className="flex justify-between text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex justify-between text-sm text-muted-foreground">
           <span>Estimated Annual Investments:</span>
           <span>{formatCurrency(totalMonthlyInvestments * 12)}</span>
         </div>

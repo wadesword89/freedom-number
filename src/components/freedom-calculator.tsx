@@ -1,6 +1,7 @@
 'use client';
 import AgeSlider from './age-slider';
 import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
 import {
   Card,
   CardContent,
@@ -19,6 +20,12 @@ import FreedomResults from './freedom-results';
 // import InvestmentGrowthChart from './investment-growth-chart';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 import Footer from './footer';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { HelpCircle } from 'lucide-react';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useLocalStorage(
@@ -183,13 +190,6 @@ export default function FreedomCalculator() {
                   setReturnRate={setReturnRate}
                 />
               </div>
-              {/* <div>
-                <h3 className="mb-2 font-medium">Withdrawal Rate</h3>
-                <WithdrawalRateSelector
-                  withdrawalRate={withdrawalRate}
-                  setWithdrawalRate={setWithdrawalRate}
-                />
-              </div> */}
               <div>
                 <h3 className="mb-2 font-medium">Risk Tolerance</h3>
                 <RiskToleranceToggle
@@ -237,8 +237,28 @@ export default function FreedomCalculator() {
           <Card>
             <CardHeader>
               <CardTitle>Monthly Contributions</CardTitle>
-              <CardDescription>
+              <CardDescription className="flex items-center gap-2">
                 How much are you investing each month?
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={'ghost'}
+                      size={'icon'}
+                      className="h-6 w-6 text-primary"
+                    >
+                      <HelpCircle className="h-4 w-4" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <div className='space-y-2'>
+                      <h4 className="font-medium">Monthly Contributions</h4>
+                      <div className="text-sm text-muted-foreground">
+                        Assumes you continue investing the same monthly until you
+                        reach your Freedom Age.
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -251,48 +271,7 @@ export default function FreedomCalculator() {
           </Card>
         </section>
       </div>
-
       <Footer />
     </main>
   );
-}
-
-{
-  /* <div className="">
-  <Card>
-    <CardHeader>
-      <CardTitle>Results</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <div className="space-y-6">
-        <div>
-          <h3 className="mb-2 font-medium">Freedom Number</h3>
-          <p className="text-3xl font-bold">${freedomNumber}</p>
-        </div>
-        <div>
-          <h3 className="mb-2 font-medium">Freedom Age</h3>
-          <p className="text-3xl font-bold">
-            {freedomAge ? freedomAge : 'N/A'}
-          </p>
-        </div>
-      </div>
-    </CardContent>
-  </Card>
-</div>; */
-}
-
-{
-  /* <Card>
-              <CardHeader>
-                <CardTitle>Investment Growth</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <InvestmentGrowthChart
-                  data={growthData}
-                  freedomNumber={freedomNumber}
-                  freedomAge={freedomAge}
-                  currentAge={currentAge}
-                />
-              </CardContent>
-            </Card> */
 }

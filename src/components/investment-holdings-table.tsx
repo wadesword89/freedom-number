@@ -155,7 +155,7 @@ export default function InvestmentHoldingsTable({
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {/* Total Investments */}
-      <div className="mt-4 flex justify-between bg-slate-100 p-3 rounded-md">
+      <div className="mt-4 flex justify-between bg-accent p-3 rounded-md">
         <span className="font-medium">Total Current Investments:</span>
         <span className="font-bold">
           {formatCurrency(totalCurrentInvestments)}

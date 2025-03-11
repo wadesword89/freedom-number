@@ -11,6 +11,13 @@ import { formatCurrency } from '@/lib/utils';
 import { PartyPopper } from 'lucide-react';
 import { NumberTicker } from './magicui/number-ticker';
 import { ConfettiButton } from './magicui/confetti';
+import { Button } from './ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { HelpCircle } from 'lucide-react';
 
 export default function FreedomResults({ freedomNumber, freedomAge }) {
   const getAgeMessage = () => {
@@ -25,8 +32,28 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
       <Card className="relative overflow-hidden">
         <CardHeader>
           <CardTitle>Your Freedom Number</CardTitle>
-          <CardDescription>
+          <CardDescription className="flex items-center gap-2">
             The amount you need to be financially independent
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={'ghost'}
+                  size={'icon'}
+                  className="h-6 w-6 text-primary"
+                >
+                  <HelpCircle className="h-4 w-4" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <div className="space-y-2">
+                  <h4 className="font-medium">Freedom Number</h4>
+                  <div className="text-sm text-muted-foreground">
+                    Amount assumes no Social Security or pension income, and no
+                    taxes on withdrawals
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
           </CardDescription>
         </CardHeader>
         <CardContent className="">
@@ -43,8 +70,27 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
         <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle>Your Freedom Age</CardTitle>
-            <CardDescription>
+            <CardDescription className='flex items-center gap-2'>
               When you&apos;ll reach financial independence
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant={'ghost'}
+                    size={'icon'}
+                    className="h-6 w-6 text-primary"
+                  >
+                    <HelpCircle className="h-4 w-4" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Freedom Number</h4>
+                    <div className="text-sm text-muted-foreground">
+                    Assumes your portfolio grows at the selected return rate (6% or 7%) and that you consistently contribute the inputted monthly contributions until you reach your Freedom Age.
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
             </CardDescription>
           </CardHeader>
           <CardContent className="">

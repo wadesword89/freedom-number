@@ -21,7 +21,7 @@ export default function ReturnRateSelector({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-slate-600 dark:text-slate-400">
+        <span className="text-sm text-muted-foreground">
           Assumed annual return on investments
         </span>
         <Popover>
@@ -33,21 +33,21 @@ export default function ReturnRateSelector({
           <PopoverContent className="w-80">
             <div className="space-y-2">
               <h4 className="font-medium">Investment Return Rate</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-muted-foreground">
                 This is the average annual return you expect from your
                 investments over the long term.
               </p>
 
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-muted-foreground">
                 The S&P 500 has historically returned about 10% annually before
                 inflation.
               </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-muted-foreground">
                 Rates here are inflation-adjusted and assume steady, long-term
                 market growth. No market crashes or downturns are accounted for.
               </p>
 
-              <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
+              <ul className="list-disc pl-4 text-sm text-muted-foreground">
                 <li><strong>6% </strong>is a conservative estimate</li>
                 <li><strong>7%</strong> is a moderate estimate</li>
                 <li>Higher rates are possible but riskier.</li>

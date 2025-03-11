@@ -22,7 +22,7 @@ export default function WithdrawalRateSelector({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-slate-600 dark:text-slate-400">
+        <span className="text-sm text-muted-foreground ">
           Future withdrawal rate in retirement
         </span>
 
@@ -35,11 +35,11 @@ export default function WithdrawalRateSelector({
           <PopoverContent className="w-80">
             <div className="space-y-2">
               <h4 className="font-medium">Withdrawal Rate</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-muted-foreground">
                 The withdrawal rate is the percentage of your portfolio you plan
                 to withdraw each year in retirement.
               </p>
-              <ul className="list-disc pl-4 text-sm text-slate-600 dark:text-slate-400">
+              <ul className="list-disc pl-4 text-sm text-muted-foreground">
                 <li>
                   4% is the traditional safe withdrawal rate based on the{' '}
                   <Link
