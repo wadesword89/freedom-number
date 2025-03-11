@@ -65,7 +65,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
                     )}
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                <p className="mt-2 text-sm text-muted-foreground">
                   {getAgeMessage()}
                 </p>
               </div>

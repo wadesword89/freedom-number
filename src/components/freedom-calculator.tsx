@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import AgeSlider from './age-slider';
 import { useEffect, useState } from 'react';
 import {
@@ -18,8 +17,8 @@ import { v4 as uuidv4 } from 'uuid';
 import InvestmentHoldingsTable from './investment-holdings-table';
 import FreedomResults from './freedom-results';
 // import InvestmentGrowthChart from './investment-growth-chart';
-import { Instagram, Twitter } from 'lucide-react';
 import { useLocalStorage } from '@/hooks/use-local-storage';
+import Footer from './footer';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useLocalStorage(
@@ -35,27 +34,36 @@ export default function FreedomCalculator() {
     'freedom-is-convservative',
     true
   );
-  const [monthlyExpenses, setMonthlyExpenses] = useLocalStorage("freedom-monthly-expenses",[
-    { id: uuidv4(), category: 'Housing', amount: 2000 },
-    { id: uuidv4(), category: 'Food', amount: 400 },
-    { id: uuidv4(), category: 'Transportation', amount: 300 },
-    { id: uuidv4(), category: 'Utilities', amount: 200 },
-    { id: uuidv4(), category: 'Entertainment', amount: 300 },
-    { id: uuidv4(), category: 'Travel', amount: 300 },
-    { id: uuidv4(), category: 'Miscellaneous', amount: 1500 },
-  ]);
-  const [currentInvestments, setCurrentInvestments] = useLocalStorage("freedom-current-investments",[
-    { id: uuidv4(), account: '401(k)', amount: 10000 },
-    { id: uuidv4(), account: 'IRA', amount: 50000 },
-    { id: uuidv4(), account: 'Brokerage', amount: 10000 },
-    { id: uuidv4(), account: 'Other', amount: 1000 },
-  ]);
-  const [monthlyInvestments, setMonthlyInvestments] = useLocalStorage("freedom-monthly-investments",[
-    { id: uuidv4(), account: '401(k)', amount: 500 },
-    { id: uuidv4(), account: 'IRA', amount: 500 },
-    { id: uuidv4(), account: 'Brokerage', amount: 500 },
-    { id: uuidv4(), account: 'Other', amount: 100 },
-  ]);
+  const [monthlyExpenses, setMonthlyExpenses] = useLocalStorage(
+    'freedom-monthly-expenses',
+    [
+      { id: uuidv4(), category: 'Housing', amount: 2000 },
+      { id: uuidv4(), category: 'Food', amount: 400 },
+      { id: uuidv4(), category: 'Transportation', amount: 300 },
+      { id: uuidv4(), category: 'Utilities', amount: 200 },
+      { id: uuidv4(), category: 'Entertainment', amount: 300 },
+      { id: uuidv4(), category: 'Travel', amount: 300 },
+      { id: uuidv4(), category: 'Miscellaneous', amount: 1500 },
+    ]
+  );
+  const [currentInvestments, setCurrentInvestments] = useLocalStorage(
+    'freedom-current-investments',
+    [
+      { id: uuidv4(), account: '401(k)', amount: 10000 },
+      { id: uuidv4(), account: 'IRA', amount: 50000 },
+      { id: uuidv4(), account: 'Brokerage', amount: 10000 },
+      { id: uuidv4(), account: 'Other', amount: 1000 },
+    ]
+  );
+  const [monthlyInvestments, setMonthlyInvestments] = useLocalStorage(
+    'freedom-monthly-investments',
+    [
+      { id: uuidv4(), account: '401(k)', amount: 500 },
+      { id: uuidv4(), account: 'IRA', amount: 500 },
+      { id: uuidv4(), account: 'Brokerage', amount: 500 },
+      { id: uuidv4(), account: 'Other', amount: 100 },
+    ]
+  );
   const [totalMonthlyExpenses, setTotalMonthlyExpenses] = useState(0);
   const [totalCurrentInvestments, setTotalCurrentInvestments] = useState(0);
   const [totalMonthlyInvestments, setTotalMonthlyInvestments] = useState(0);
@@ -139,9 +147,13 @@ export default function FreedomCalculator() {
   return (
     <main className="space-y-8 relative">
       {/* Results */}
-      <div className=" border shadow-inner p-4 rounded-2xl">
+      <div className=" border shadow-inner p-4 rounded-2xl bg-accent">
         <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
+
+      <h2 className="text-2xl font-bold text-center mb-5 tracking-wide">
+        Modify Inputs:
+      </h2>
 
       {/* Inputs */}
       <div className="grid gap-8 md:grid-cols-2">
@@ -240,25 +252,7 @@ export default function FreedomCalculator() {
         </section>
       </div>
 
-      <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
-        <div>
-          {/* ❤️, 🤖, 🔥, 💦, ✨, */}
-          Made by{' '}
-          <span className="hover:underline">
-            <Link href={'https://www.gridscatter.com'} target="_blank">
-              Grid Scatter{' '}
-            </Link>
-          </span>
-        </div>
-        <div className="flex gap-4">
-          <Link href={'https://www.x.com/gridscatter'} target="_blank">
-            <Twitter />
-          </Link>
-          <Link href={'https://www.instagram.com/gridscatter'} target="_blank">
-            <Instagram />
-          </Link>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

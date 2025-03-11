@@ -158,14 +158,14 @@ export default function MonthlyExpensesTable({
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {/* Total Monthy Expenses */}
-      <div className="bg-slate-100 space-y-2 p-3 mt-4 rounded-md dark:bg-slate-800">
+      <div className="bg-slate-100 space-y-2 p-3 mt-4 rounded-md">
         <div className="flex justify-between">
           <span className="font-medium">Total Monthly Expenses:</span>
           <span className="font-bold">
             {formatCurrency(totalMonthlyExpenses)}
           </span>
         </div>
-        <div className="flex justify-between text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex justify-between text-sm text-slate-600">
           <span>Estimated Annual Expenses:</span>
           <span>{formatCurrency(totalMonthlyExpenses * 12)}</span>
         </div>
