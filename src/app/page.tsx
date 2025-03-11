@@ -6,13 +6,12 @@ export default function Home() {
     <>
       <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-8">
-          <header className="mb-8 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <header className="mb-4 md:mb-8 text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
               Freedom Number
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              See when you could achieve{' '}
-              <span className="">financial independence</span> 
+            <p className="md:mt-4 md:text-lg text-muted-foreground">
+              See when you could achieve financial independence
             </p>
           </header>
           <FreedomCalculator />

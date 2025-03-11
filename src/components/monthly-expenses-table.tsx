@@ -84,12 +84,12 @@ export default function MonthlyExpensesTable({
   return (
     <section className="space-y-4">
       {/* Expenses Table */}
-      <Table className='flex flex-col'>
+      <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="">Expense Category</TableHead>
             <TableHead className="text-right">Monthly Amount ($)</TableHead>
-            <TableHead className="text-right"></TableHead>
+            <TableHead className="w-[50px]"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
