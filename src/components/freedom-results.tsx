@@ -21,7 +21,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
   };
 
   return (
-    <div className="//space-y-6 flex justify-center gap-6 flex-col sm:flex-row">
+    <div className="grid sm:grid-cols-2 gap-8 ">
       <Card className="relative overflow-hidden">
         <CardHeader>
           <CardTitle>Your Freedom Number</CardTitle>

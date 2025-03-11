@@ -130,7 +130,7 @@ export default function FreedomCalculator() {
     <main className="space-y-8 relative">
 
       {/* Results */}
-      <div className="flex flex-col">
+      <div className=" border shadow-inner p-4 rounded-2xl">
         <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
       
