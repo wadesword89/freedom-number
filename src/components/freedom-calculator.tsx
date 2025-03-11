@@ -19,13 +19,23 @@ import InvestmentHoldingsTable from './investment-holdings-table';
 import FreedomResults from './freedom-results';
 // import InvestmentGrowthChart from './investment-growth-chart';
 import { Instagram, Twitter } from 'lucide-react';
+import { useLocalStorage } from '@/hooks/use-local-storage';
 
 export default function FreedomCalculator() {
-  const [currentAge, setCurrentAge] = useState(30);
-  const [returnRate, setReturnRate] = useState(0.06);
+  const [currentAge, setCurrentAge] = useLocalStorage(
+    'freedom-current-age',
+    30
+  );
+  const [returnRate, setReturnRate] = useLocalStorage(
+    'freedom-return-rate',
+    0.06
+  );
   // const [withdrawalRate, setWithdrawalRate] = useState(0.04);
-  const [isConservative, setIsConservative] = useState(true);
-  const [monthlyExpenses, setMonthlyExpenses] = useState([
+  const [isConservative, setIsConservative] = useLocalStorage(
+    'freedom-is-convservative',
+    true
+  );
+  const [monthlyExpenses, setMonthlyExpenses] = useLocalStorage("freedom-monthly-expenses",[
     { id: uuidv4(), category: 'Housing', amount: 2000 },
     { id: uuidv4(), category: 'Food', amount: 400 },
     { id: uuidv4(), category: 'Transportation', amount: 300 },
@@ -34,13 +44,13 @@ export default function FreedomCalculator() {
     { id: uuidv4(), category: 'Travel', amount: 300 },
     { id: uuidv4(), category: 'Miscellaneous', amount: 1500 },
   ]);
-  const [currentInvestments, setCurrentInvestments] = useState([
+  const [currentInvestments, setCurrentInvestments] = useLocalStorage("freedom-current-investments",[
     { id: uuidv4(), account: '401(k)', amount: 10000 },
     { id: uuidv4(), account: 'IRA', amount: 50000 },
     { id: uuidv4(), account: 'Brokerage', amount: 10000 },
     { id: uuidv4(), account: 'Other', amount: 1000 },
   ]);
-  const [monthlyInvestments, setMonthlyInvestments] = useState([
+  const [monthlyInvestments, setMonthlyInvestments] = useLocalStorage("freedom-monthly-investments",[
     { id: uuidv4(), account: '401(k)', amount: 500 },
     { id: uuidv4(), account: 'IRA', amount: 500 },
     { id: uuidv4(), account: 'Brokerage', amount: 500 },
@@ -128,17 +138,16 @@ export default function FreedomCalculator() {
 
   return (
     <main className="space-y-8 relative">
-
       {/* Results */}
       <div className=" border shadow-inner p-4 rounded-2xl">
         <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
-      
+
       {/* Inputs */}
       <div className="grid gap-8 md:grid-cols-2">
         <section className="flex flex-col gap-6">
           {/* Age Slider */}
-          <Card className=''>
+          <Card className="">
             <CardHeader>
               <CardTitle>Your Age</CardTitle>
             </CardHeader>
@@ -230,8 +239,6 @@ export default function FreedomCalculator() {
           </Card>
         </section>
       </div>
-
-      
 
       <footer className="mt-8 flex flex-col items-center justify-center space-y-2">
         <div>
