@@ -159,7 +159,7 @@ export default function FreedomCalculator() {
         <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
 
-      <h2 className="text-2xl font-bold text-center mb-5 tracking-wide">
+      <h2 className="text-2xl font-medium text-center mb-5 tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-slate-300/90 to-slate-300/50">
         Modify Inputs:
       </h2>
 
