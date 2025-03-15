@@ -60,7 +60,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
         <CardContent className="">
           <div className="flex items-center justify-center">
             {/* <Trophy className="mr-2 h-8 w-8 text-yellow-500 shrink-0" /> */}
-            <span className="text-5xl font-bold tracking-tight text-green-500">
+            <span className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-green-500 to-green-600 shadow-teal-200/30 drop-shadow-[0_0px_5px_var(--tw-shadow-color)]">
               {formatCurrency(freedomNumber).toString()}
             </span>
           </div>
@@ -100,16 +100,16 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
             <div className="text-center">
               <div className="flex items-center justify-center">
                 <ConfettiButton>
-                  <PartyPopper className="h-8 w-8 text-pink-500 mr-2 hover:scale-105" />
+                  <PartyPopper className="h-8 w-8 text-pink-500/90 mr-2 hover:scale-105" />
                 </ConfettiButton>
                 <span className="text-5xl font-bold tracking-tight ">
                   {freedomAge > 0 ? (
                     <NumberTicker
-                      className="text-pink-500"
+                      className="bg-clip-text text-transparent bg-gradient-to-b from-pink-500 to-pink-600 shadow-pink-300/30 drop-shadow-[0_0px_5px_var(--tw-shadow-color)]"
                       value={freedomAge}
                     />
                   ) : (
-                    <div className='text-5xl text-destructive'>100+</div>
+                    <div className="text-5xl text-destructive">100+</div>
                   )}
                 </span>
               </div>

@@ -154,7 +154,7 @@ export default function FreedomCalculator() {
   return (
     <main className="space-y-8">
       {/* Results */}
-      <div className=" border shadow-inner p-4 rounded-2xl bg-accent">
+      <div className="">
         <FreedomResults freedomNumber={freedomNumber} freedomAge={freedomAge} />
       </div>
 
