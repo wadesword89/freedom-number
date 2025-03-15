@@ -26,6 +26,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { HelpCircle } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function FreedomCalculator() {
   const [currentAge, setCurrentAge] = useLocalStorage(
@@ -199,76 +200,90 @@ export default function FreedomCalculator() {
               </div>
             </CardContent>
           </Card>
-          {/* Monthly Expenses */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Monthly Expenses</CardTitle>
-              <CardDescription>
-                What are your expected monthly expenses in retirement?
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <MonthlyExpensesTable
-                monthlyExpenses={monthlyExpenses}
-                setMonthlyExpenses={setMonthlyExpenses}
-                totalMonthlyExpenses={totalMonthlyExpenses}
-              />
-            </CardContent>
-          </Card>
         </section>
         <section className="flex flex-col gap-6">
-          {/* Your Investments */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Your Investments</CardTitle>
-              <CardDescription>
-                Enter your current investment holdings
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <InvestmentHoldingsTable
-                currentInvestments={currentInvestments}
-                setCurrentInvestments={setCurrentInvestments}
-                totalCurrentInvestments={totalCurrentInvestments}
-              />
-            </CardContent>
-          </Card>
-          {/* Monthly Contributions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Monthly Contributions</CardTitle>
-              <CardDescription className="flex items-center gap-2">
-                How much are you investing each month?
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={'ghost'}
-                      size={'icon'}
-                      className="h-6 w-6 text-primary"
-                    >
-                      <HelpCircle className="h-4 w-4" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <div className='space-y-2'>
-                      <h4 className="font-medium">Monthly Contributions</h4>
-                      <div className="text-sm text-muted-foreground">
-                        Assumes you continue investing the same monthly until you
-                        reach your Freedom Age.
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <MonthlyInvestmentsTable
-                monthlyInvestments={monthlyInvestments}
-                setMonthlyInvestments={setMonthlyInvestments}
-                totalMonthlyInvestments={totalMonthlyInvestments}
-              />
-            </CardContent>
-          </Card>
+          <Tabs defaultValue="expenses" className="">
+            <TabsList className="w-full ring-teal-200/20 ring-2 rounded-lg">
+              <TabsTrigger value="expenses">Expenses</TabsTrigger>
+              <TabsTrigger value="contributions">Contributions</TabsTrigger>
+              <TabsTrigger value="investments">Investments</TabsTrigger>
+            </TabsList>
+            <TabsContent value="expenses">
+              {/* Monthly Expenses */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Monthly Expenses</CardTitle>
+                  <CardDescription>
+                    What are your expected monthly expenses in retirement?
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <MonthlyExpensesTable
+                    monthlyExpenses={monthlyExpenses}
+                    setMonthlyExpenses={setMonthlyExpenses}
+                    totalMonthlyExpenses={totalMonthlyExpenses}
+                  />
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="contributions">
+              {/* Monthly Contributions */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Monthly Contributions</CardTitle>
+                  <CardDescription className="flex items-center gap-2">
+                    How much are you investing each month?
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={'ghost'}
+                          size={'icon'}
+                          className="h-6 w-6 text-primary"
+                        >
+                          <HelpCircle className="h-4 w-4 text-slate-300" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="space-y-2">
+                          <h4 className="font-medium">Monthly Contributions</h4>
+                          <div className="text-sm text-muted-foreground">
+                            Assumes you continue investing the same monthly
+                            until you reach your Freedom Age.
+                          </div>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <MonthlyInvestmentsTable
+                    monthlyInvestments={monthlyInvestments}
+                    setMonthlyInvestments={setMonthlyInvestments}
+                    totalMonthlyInvestments={totalMonthlyInvestments}
+                  />
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="investments">
+              {/* Your Investments */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Your Investments</CardTitle>
+                  <CardDescription>
+                    Enter your current investment holdings
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <InvestmentHoldingsTable
+                    currentInvestments={currentInvestments}
+                    setCurrentInvestments={setCurrentInvestments}
+                    totalCurrentInvestments={totalCurrentInvestments}
+                  />
+                </CardContent>
+              </Card>
+            </TabsContent>
+         
+          </Tabs>
         </section>
       </div>
       <Footer />

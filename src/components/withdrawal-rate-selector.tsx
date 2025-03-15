@@ -29,7 +29,7 @@ export default function WithdrawalRateSelector({
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="ghost" size="icon" className="h-6 w-6">
-              <HelpCircle className="h-4 w-4" />
+              <HelpCircle className="h-4 w-4 text-slate-300" />
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-80">

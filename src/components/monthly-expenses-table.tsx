@@ -82,7 +82,7 @@ export default function MonthlyExpensesTable({
   }
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-2">
       {/* Expenses Table */}
       <Table>
         <TableHeader>
@@ -130,7 +130,7 @@ export default function MonthlyExpensesTable({
       </Table>
 
       {/* Input New Category  Section */}
-      <div className="flex items-center gap-2">
+      <div className="flex justify-between gap-2">
         <Input
           placeholder="Expense category"
           value={newCategory}
@@ -142,7 +142,7 @@ export default function MonthlyExpensesTable({
         <Input
           type="number"
           min="0"
-          placeholder="Monthly amount"
+          placeholder="Amount"
           value={newAmount}
           onChange={(e) => {
             setNewAmount(e.target.value);
@@ -158,7 +158,7 @@ export default function MonthlyExpensesTable({
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {/* Total Monthy Expenses */}
-      <div className="bg-accent space-y-2 p-3 mt-4 rounded-md">
+      <div className="bg-accent/30 space-y-2 p-3 mt-4 rounded-md">
         <div className="flex justify-between">
           <span className="font-medium">Total Monthly Expenses:</span>
           <span className="font-bold">

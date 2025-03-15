@@ -82,7 +82,7 @@ export default function MonthlyInvestmentsTable({
   }
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-2">
       {/* Investments Table */}
       <Table>
         <TableHeader>
@@ -142,7 +142,7 @@ export default function MonthlyInvestmentsTable({
         <Input
           type="number"
           min="0"
-          placeholder="Monthly amount"
+          placeholder="Amount"
           value={newAmount}
           onChange={(e) => {
             setNewAmount(e.target.value);
@@ -158,7 +158,7 @@ export default function MonthlyInvestmentsTable({
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {/* Total Monthy Investments */}
-      <div className="bg-accent space-y-2 p-3 mt-4 rounded-md ">
+      <div className="bg-accent/30 space-y-2 p-3 mt-4 rounded-md ">
         <div className="flex justify-between">
           <span className="font-medium">Total Monthly Investments:</span>
           <span className="font-bold">

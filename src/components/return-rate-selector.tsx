@@ -21,13 +21,13 @@ export default function ReturnRateSelector({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-muted-foreground">
+        <span className="text-sm opacity-70">
           Assumed annual return on investments
         </span>
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="ghost" size="icon" className="h-6 w-6">
-              <HelpCircle className="h-4 w-4" />
+              <HelpCircle className="h-4 w-4 text-slate-300" />
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-80">

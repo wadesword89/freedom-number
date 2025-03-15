@@ -42,7 +42,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
                   size={'icon'}
                   className="h-6 w-6 text-primary"
                 >
-                  <HelpCircle className="h-4 w-4" />
+                  <HelpCircle className="h-4 w-4 text-slate-300" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent>
@@ -79,7 +79,7 @@ export default function FreedomResults({ freedomNumber, freedomAge }) {
                   size={'icon'}
                   className="h-6 w-6 text-primary"
                 >
-                  <HelpCircle className="h-4 w-4" />
+                  <HelpCircle className="h-4 w-4 text-slate-300" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent>
